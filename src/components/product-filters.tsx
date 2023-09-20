@@ -15,7 +15,7 @@ export const ProductFilters = function(props) {
 
     return (
         <Box maw={340}>
-            <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <form onSubmit={form.onSubmit((values) => props.onChange(values))}>
                 <div className="flex flex-col">
                     <TextInput
                         placeholder="Rechercher une boisson"

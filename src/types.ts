@@ -1,4 +1,4 @@
-export type ProductFilterResult = {
-    categoriesSlug: [],
+export type ProductFiltersResult = {
+    categoriesSlug: string[],
     search: string
 };
