@@ -8,14 +8,15 @@ import {ProductFiltersResult} from "@/types";
 import {FC, useState} from "react";
 import {useMemo} from "react";
 import {filterProducts} from "@/utils/filter-products";
-
-const categories = PRODUCTS_CATEGORY_DATA;
+import {ProductsCategoryData} from "tp-kit/types";
+import Link from "next/link";
 
 type Props = {
-    showFilters: boolean
+    showFilters: boolean,
+    categories: ProductsCategoryData[]
 }
 
-export const ProductList: FC<Props> = function ({showFilters}) {
+export const ProductList: FC<Props> = function ({categories, showFilters}) {
     const [filter, setFilter] = useState<ProductFiltersResult>()
 
     const categFiltered = useMemo(
@@ -25,14 +26,16 @@ export const ProductList: FC<Props> = function ({showFilters}) {
 
     return (
         <div className="flex mx-5">
-            <div className="flex-auto mt-10">
+
+            {showFilters ? <div className="flex-auto mt-10">
                 <ProductFilters categories={categories} onChange={values => setFilter(values)}></ProductFilters>
-            </div>
+            </div> : ""}
             <div className="flex-auto">
                 {categFiltered.map(category =>
                     <>
                         <SectionContainer>
-                            <h1 className="mb-3 text-xl"><b>{category.name} ({category.products.length})</b></h1>
+                            <h1 className="mb-3 text-xl"><b><Link
+                                href={'/' + category.slug}>{category.name}</Link> ({category.products.length})</b></h1>
 
                             <ProductGridLayout products={category.products}>
                                 {product => <ProductCardLayout

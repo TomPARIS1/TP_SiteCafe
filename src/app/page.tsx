@@ -3,7 +3,9 @@ import {BreadCrumbs, Button, SectionContainer} from "tp-kit/components";
 import {ProductCardLayout, ProductGridLayout} from "tp-kit/components/products";
 import {ProductFilters} from "@/components/product-filters";
 import {ProductList} from "@/components/product-list";
+import {PRODUCTS_CATEGORY_DATA} from "tp-kit/data";
 
+const categories = PRODUCTS_CATEGORY_DATA;
 
 export default function Home() {
 
@@ -21,7 +23,7 @@ export default function Home() {
         </div>
 
         <div>
-            <ProductList showFilters={false}></ProductList>
+            <ProductList showFilters={true} categories={categories}></ProductList>
         </div>
 
     </main>
