@@ -28,7 +28,7 @@ export default function Home({params} : NextPageProps<Props>) {
                 <BreadCrumbs
                     items={[
                         {
-                            label: 'AccueEil',
+                            label: 'Accueil',
                             url: '/'
                         },{
                             label: currentcategories[0].name,
