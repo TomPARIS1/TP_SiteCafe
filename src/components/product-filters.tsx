@@ -28,7 +28,7 @@ export const ProductFilters = function(props) {
                             <>
                                 <Checkbox
                                     mt="md"
-                                    value={category.name + " (" + category.products.length + ")"}
+                                    value={category.slug}
                                     label={category.name + " (" + category.products.length + ")"}
                                     color="green"
                                 />
