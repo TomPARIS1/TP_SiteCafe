@@ -3,14 +3,19 @@
 import {ProductFilters} from "@/components/product-filters";
 import {Button, SectionContainer} from "tp-kit/components";
 import {ProductCardLayout, ProductGridLayout} from "tp-kit/components/products";
-import { PRODUCTS_CATEGORY_DATA } from "tp-kit/data"
+import {PRODUCTS_CATEGORY_DATA} from "tp-kit/data"
 import {ProductFiltersResult} from "@/types";
-import {useState} from "react";
+import {FC, useState} from "react";
 import {useMemo} from "react";
 import {filterProducts} from "@/utils/filter-products";
+
 const categories = PRODUCTS_CATEGORY_DATA;
 
-export const ProductList = function() {
+type Props = {
+    showFilters: boolean
+}
+
+export const ProductList: FC<Props> = function ({showFilters}) {
     const [filter, setFilter] = useState<ProductFiltersResult>()
 
     const categFiltered = useMemo(
@@ -21,7 +26,7 @@ export const ProductList = function() {
     return (
         <div className="flex mx-5">
             <div className="flex-auto mt-10">
-                <ProductFilters categories={categories} onChange={values=>setFilter(values)}></ProductFilters>
+                <ProductFilters categories={categories} onChange={values => setFilter(values)}></ProductFilters>
             </div>
             <div className="flex-auto">
                 {categFiltered.map(category =>
@@ -32,7 +37,7 @@ export const ProductList = function() {
                             <ProductGridLayout products={category.products}>
                                 {product => <ProductCardLayout
                                     button={<Button variant="ghost" fullWidth="true">Ajouter au panier</Button>}
-                                    product={ product }
+                                    product={product}
                                 />
                                 }
                             </ProductGridLayout>

@@ -21,7 +21,7 @@ export default function Home() {
         </div>
 
         <div>
-            <ProductList></ProductList>
+            <ProductList showFilters={false}></ProductList>
         </div>
 
     </main>

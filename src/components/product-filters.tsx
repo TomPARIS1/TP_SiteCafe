@@ -2,14 +2,15 @@
 
 import {PRODUCTS_CATEGORY_DATA} from "tp-kit/data";
 import {Button} from "tp-kit/components";
-import { Checkbox, TextInput, Group, Box } from '@mantine/core';
-import { useForm } from '@mantine/form';
+import {Checkbox, TextInput, Group, Box} from '@mantine/core';
+import {useForm} from '@mantine/form';
+import {boolean} from "zod";
 
-export const ProductFilters = function(props) {
+export const ProductFilters = function (props) {
     const form = useForm({
         initialValues: {
             categoriesSlug: [],
-            search: ''
+            search: '',
         }
     });
 
@@ -22,7 +23,7 @@ export const ProductFilters = function(props) {
                         {...form.getInputProps('search')}
                     />
                     <Checkbox.Group
-                        {...form.getInputProps('categoriesSlug', { type: 'checkbox'})}
+                        {...form.getInputProps('categoriesSlug', {type: 'checkbox'})}
                     >
                         {props.categories.map(category =>
                             <>
