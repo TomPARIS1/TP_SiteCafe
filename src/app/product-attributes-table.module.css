@@ -2,6 +2,10 @@
     @apply w-2/4
 }
 
+.table tbody {
+    @apply divide-y divide-solid
+}
+
 .table tr {
     @apply h-20 flex flex-row items-center justify-between
 }

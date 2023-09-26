@@ -3,9 +3,15 @@ import {BreadCrumbs, Button, SectionContainer} from "tp-kit/components";
 import {ProductCardLayout, ProductGridLayout} from "tp-kit/components/products";
 import {ProductFilters} from "@/components/product-filters";
 import {ProductList} from "@/components/product-list";
+import { Metadata } from 'next';
 import {PRODUCTS_CATEGORY_DATA} from "tp-kit/data";
 
 const categories = PRODUCTS_CATEGORY_DATA;
+
+export const metadata: Metadata = {
+    title: "Page d'accueil - Starbucks",
+    description: "Commandez de délicieuses boissons préparées avec soin par nos baristas"
+}
 
 export default function Home() {
 
