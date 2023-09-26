@@ -1,5 +1,4 @@
-import {ProductFilters} from '@/components/product-filters';
-import ProductList from '@/components/product-list';
+import ProductAttributeTable from '@/components/product-attributes-table';
 import Image from 'next/image'
 import {notFound} from 'next/navigation'
 import {ProductRating} from 'tp-kit/components';
@@ -66,6 +65,15 @@ export default function Home({params}: NextPageProps<Props>) {
                         </section>
                     </article>
 
+                </div>
+                <div className='flex justify-end'>
+                    <ProductAttributeTable attributes={[
+                        {label:"Intensité", rating:Math.random()*5},
+                        {label:"Volupté", rating:Math.random()*5},
+                        {label:"Amertume", rating:Math.random()*5},
+                        {label:"Onctuosité", rating:Math.random()*5},
+                        {label:"Instagramabilité", rating:Math.random()*5},
+                    ]}/>
                 </div>
             </SectionContainer>
             <SectionContainer>
